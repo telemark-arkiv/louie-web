@@ -1,0 +1,53 @@
+{
+  "name": "louie-web",
+  "version": "1.0.0",
+  "description": "Web interface for Louie",
+  "license": "MIT",
+  "author": {
+    "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no",
+    "url": "https://github.com/zrrrzzt"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "scripts": {
+    "start": "node standalone.js",
+    "test": "standard && tap --reporter=spec test/*.js",
+    "coverage": "tap test/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
+    "setup": "npm install && node setup.js"
+  },
+  "keywords": [
+    "Louie"
+  ],
+  "standard": {
+    "ignore": [
+      "public"
+    ]
+  },
+  "louie": {
+    "versionName": "The Kingsmen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/telemark/louie-web.git"
+  },
+  "bugs": {
+    "url": "http://github.com/telemark/louie-web/issues"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "standard": "^5.4.1",
+    "tap": "^5.0.1"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "hapi": "^12.1.0",
+    "hoek": "^3.0.4",
+    "inert": "^3.2.0",
+    "path": "^0.12.7",
+    "vision": "^4.0.1"
+  }
+}
