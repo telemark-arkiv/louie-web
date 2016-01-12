@@ -32,11 +32,13 @@ function doLogout (request, reply) {
 }
 
 function doSearch (request, reply) {
+  var students = require('../test/data/students')
   var viewOptions = {
     version: pkg.version,
-    versionName: pkg.louie.versionName
+    versionName: pkg.louie.versionName,
+    students: students
   }
-  reply.view('index', viewOptions)
+  reply.view('search-results', viewOptions)
 }
 
 function writeWarning (request, reply) {
@@ -44,7 +46,7 @@ function writeWarning (request, reply) {
     version: pkg.version,
     versionName: pkg.louie.versionName
   }
-  reply.view('index', viewOptions)
+  reply.view('warning', viewOptions)
 }
 
 function submitWarning (request, reply) {

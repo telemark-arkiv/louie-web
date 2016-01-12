@@ -37,7 +37,7 @@ var routes = [
     }
   },
   {
-    method: 'GET',
+    method: 'POST',
     path: '/search',
     config: {
       handler: handlers.doSearch
