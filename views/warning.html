@@ -1,6 +1,22 @@
-<h1>Skriv varselbrev</h1>
-
-<div class="mdl-textfield mdl-js-textfield">
-  <textarea class="mdl-textfield__input" type="text" rows="5" id="description" name="description"></textarea>
-    <label class="mdl-textfield__label" for="description">Beskrivelse</label>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--3-col"></div>
+  <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
+    <form action="/warning" method="post">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">{{student.name}}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--full-width">
+        <textarea class="mdl-textfield__input mdl-textfield--full-width" type="text" rows="5" id="description" name="description"></textarea>
+        <label class="mdl-textfield__label" for="description">Beskrivelse</label>
+      </div>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <div class="mdl-layout-spacer"></div>
+      <a href="/" class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">delete</i></a>
+      <button type="submit" class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">email</i></button>
+    </div>
+    </form>
+  </div>
+  <div class="mdl-cell mdl-cell--3-col"></div>
 </div>

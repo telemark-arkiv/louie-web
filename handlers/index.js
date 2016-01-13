@@ -1,6 +1,17 @@
 'use strict'
 
 var pkg = require('../package.json')
+var students = require('../test/data/students')
+
+function filterStudents(studentID) {
+  var chosen
+  students.forEach( function (student) {
+    if (student.fodselsnummer === studentID) {
+      chosen = student
+    }
+  })
+  return chosen
+}
 
 function getFrontpage (request, reply) {
   var viewOptions = {
@@ -42,9 +53,12 @@ function doSearch (request, reply) {
 }
 
 function writeWarning (request, reply) {
+  var studentID = request.params.studentID
+  var student = filterStudents(studentID)
   var viewOptions = {
     version: pkg.version,
-    versionName: pkg.louie.versionName
+    versionName: pkg.louie.versionName,
+    student: student
   }
   reply.view('warning', viewOptions)
 }

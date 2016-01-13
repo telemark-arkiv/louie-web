@@ -14,7 +14,8 @@
 <link href="/public/css/material-icons.css" rel="stylesheet">
 <!-- Main CSS -->
 <link href="/public/css/main.css" rel="stylesheet">
-
+<!-- Custom CSS -->
+<link href="/public/css/custom.css" rel="stylesheet">
 </head>
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -26,23 +27,15 @@
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
                 <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <a class="mdl-navigation__link" href="/"><i class="material-icons">home</i></a>
-                    <a class="mdl-navigation__link" href="/logout"><i class="material-icons">login</i></a>
+                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="/"><i class="material-icons">home</i></a>
+                    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="/logout"><i class="material-icons">power_settings_new</i></a>
                 </nav>
             </div>
         </header>
         <main class="mdl-layout__content">
               {{{content}}}
         </main>
-        <footer class="mdl-mini-footer">
-            <div class="mdl-mini-footer__left-section">
-                <div class="mdl-logo">Title</div>
-                <ul class="mdl-mini-footer__link-list">
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Privacy & Terms</a></li>
-                </ul>
-            </div>
-        </footer>
+        {{>footer}}
     </div>
 <!-- Core JavaScript -->
 <script src="/public/js/material.min.js"></script>
