@@ -1,5 +1,7 @@
-<div>
-    <h1>Søkeresultat</h1>
+{{>search-students-box}}
+<div class="mdl-grid">
+    <div class="mdl-cell--4-col"></div>
+    <div class="mdl-cell--4-col">
     {{#each students}}
     <div class="demo-card-wide mdl-card mdl-shadow--2dp">
         <div class="mdl-card__title">
@@ -15,4 +17,6 @@
         </div>
     </div>
     {{/each}}
+        </div>
+    <div class="mdl-cell--4-col"></div>
 </div>
