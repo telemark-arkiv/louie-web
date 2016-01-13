@@ -2,6 +2,7 @@
 
 var pkg = require('../package.json')
 var students = require('../test/data/students')
+var warnings = require('../test/data/warnings')
 
 function filterStudents(studentID) {
   var chosen
@@ -16,7 +17,8 @@ function filterStudents(studentID) {
 function getFrontpage (request, reply) {
   var viewOptions = {
     version: pkg.version,
-    versionName: pkg.louie.versionName
+    versionName: pkg.louie.versionName,
+    myWarnings: warnings
   }
   reply.view('index', viewOptions)
 }
@@ -43,11 +45,14 @@ function doLogout (request, reply) {
 }
 
 function doSearch (request, reply) {
+  var data = request.payload
+  var searchText = data.searchText
   var students = require('../test/data/students')
   var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
-    students: students
+    students: students,
+    searchText: searchText
   }
   reply.view('search-results', viewOptions)
 }
@@ -68,7 +73,8 @@ function submitWarning (request, reply) {
     version: pkg.version,
     versionName: pkg.louie.versionName
   }
-  reply.view('index', viewOptions)
+  // reply.view('index', viewOptions)
+  reply.redirect('/')
 }
 
 module.exports.getFrontpage = getFrontpage

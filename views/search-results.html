@@ -1,7 +1,5 @@
 {{>search-students-box}}
 
-
-
 {{#each students}}
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--3-col"></div>
@@ -10,10 +8,10 @@
                 <h2 class="mdl-card__title-text">{{name}}</h2>
             </div>
             <div class="mdl-card__media">
-
+                <img src="/public/images/student.jpeg" alt="{{name}}" width="223" height="335">
             </div>
             <div class="mdl-card__menu">
-                <a href="/warning/{{fodselsnummer}}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+                <a href="/warning/{{fodselsnummer}}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--primary">
                     <i class="material-icons">note_add</i>
                 </a>
             </div>
