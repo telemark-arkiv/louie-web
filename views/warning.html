@@ -6,9 +6,16 @@
       <h2 class="mdl-card__title-text">{{student.name}}</h2>
     </div>
     <div class="mdl-card__supporting-text">
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--full-width">
-        <textarea class="mdl-textfield__input mdl-textfield--full-width" type="text" rows="5" id="description" name="description"></textarea>
-        <label class="mdl-textfield__label" for="description">Beskrivelse</label>
+      <div class="mdl-radio">
+        <label for="type-adferd">
+          <input type="radio" name="type" value="adferd" id="type-adferd" checked>Adferd
+        </label>
+        <label for="type-karakter">
+          <input type="radio" name="type" value="karakter" id="type-karakter">Karakter
+        </label>
+        <label for="type-orden">
+          <input type="radio" name="type" value="orden" id="type-orden">Orden
+        </label>
       </div>
     </div>
     <div class="mdl-card__actions mdl-card--border">
