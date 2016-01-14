@@ -7,9 +7,9 @@ var order = require('../lib/categories-order')
 var behaviour = require('../lib/categories-behaviour')
 var warningTypes = require('../lib/categories-warnings')
 
-function filterStudents(studentID) {
+function filterStudents (studentID) {
   var chosen
-  students.forEach( function (student) {
+  students.forEach(function (student) {
     if (student.fodselsnummer === studentID) {
       chosen = student
     }
@@ -20,7 +20,7 @@ function filterStudents(studentID) {
 function filterWarningTypes (isContact) {
   var filteredList = []
   warningTypes.forEach(function (type) {
-    if (type.id === 'Karakter' || isContact) {
+    if (type.id === 'karakter' || isContact) {
       filteredList.push(type)
     }
   })
@@ -95,14 +95,16 @@ function writeWarning (request, reply) {
 }
 
 function submitWarning (request, reply) {
-  var data = request.payload
+  // var data = request.payload
+  /*
   var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     githubUrl: pkg.repository.url
   }
-  console.log(data)
+  */
+  // console.log(data)
   // reply.view('index', viewOptions)
   reply.redirect('/')
 }
