@@ -3,6 +3,8 @@
 var pkg = require('../package.json')
 var students = require('../test/data/students')
 var warnings = require('../test/data/warnings')
+var order = require('../lib/categories-order')
+var behaviour = require('../lib/categories-behaviour')
 
 function filterStudents(studentID) {
   var chosen
@@ -73,18 +75,22 @@ function writeWarning (request, reply) {
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     githubUrl: pkg.repository.url,
-    student: student
+    student: student,
+    order: order,
+    behaviour: behaviour
   }
   reply.view('warning', viewOptions)
 }
 
 function submitWarning (request, reply) {
+  var data = request.payload
   var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     githubUrl: pkg.repository.url
   }
+  console.log(data)
   // reply.view('index', viewOptions)
   reply.redirect('/')
 }

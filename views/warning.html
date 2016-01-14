@@ -6,17 +6,10 @@
       <h2 class="mdl-card__title-text">{{student.name}}</h2>
     </div>
     <div class="mdl-card__supporting-text">
-      <div class="mdl-radio">
-        <label for="type-adferd">
-          <input type="radio" name="type" value="adferd" id="type-adferd" checked>Adferd
-        </label>
-        <label for="type-karakter">
-          <input type="radio" name="type" value="karakter" id="type-karakter">Karakter
-        </label>
-        <label for="type-orden">
-          <input type="radio" name="type" value="orden" id="type-orden">Orden
-        </label>
-      </div>
+      {{>warning-type-list}}
+      {{>courses-list}}
+      {{>order-categories-list}}
+      {{>behaviour-categories-list}}
     </div>
     <div class="mdl-card__actions mdl-card--border">
       <div class="mdl-layout-spacer"></div>
@@ -27,3 +20,6 @@
   </div>
   <div class="mdl-cell mdl-cell--3-col"></div>
 </div>
+
+<!-- Helperscript for form -->
+<script src="/public/js/warning-form.js"></script>

@@ -1,0 +1,6 @@
+{{#each student.mineFag}}
+    <label for="courseChkbox{{fagkode}}" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxKarakter">
+        <input type="checkbox" name="coursesList" value="{{fagkode}} - {{fagnavn}}" id="courseChkbox{{fagkode}}" class="mdl-checkbox__input">
+        <span class="mdl-checkbox__label">{{fagkode}} - {{fagnavn}}</span>
+    </label>
+{{/each}}

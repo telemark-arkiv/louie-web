@@ -1,0 +1,6 @@
+{{#each order}}
+    <label for="orderChkbox{{id}}" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxOrden">
+        <input type="checkbox" name="orderCategories" value="{{description}}" id="orderChkbox{{id}}" class="mdl-checkbox__input">
+        <span class="mdl-checkbox__label">{{description}}</span>
+    </label>
+{{/each}}
