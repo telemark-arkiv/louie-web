@@ -28,7 +28,8 @@
     ]
   },
   "louie": {
-    "versionName": "The Kingsmen"
+    "versionName": "The Kingsmen",
+    "versionVideoUrl": "https://www.youtube.com/watch?v=4V1p1dM3snQ"
   },
   "repository": {
     "type": "git",

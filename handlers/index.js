@@ -18,6 +18,8 @@ function getFrontpage (request, reply) {
   var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    githubUrl: pkg.repository.url,
     myWarnings: warnings
   }
   reply.view('index', viewOptions)
@@ -31,7 +33,9 @@ function getLoginPage (request, reply) {
 function doLogin (request, reply) {
   var viewOptions = {
     version: pkg.version,
-    versionName: pkg.louie.versionName
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    githubUrl: pkg.repository.url
   }
   reply.view('index', viewOptions)
 }
@@ -39,7 +43,9 @@ function doLogin (request, reply) {
 function doLogout (request, reply) {
   var viewOptions = {
     version: pkg.version,
-    versionName: pkg.louie.versionName
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    githubUrl: pkg.repository.url
   }
   reply.view('index', viewOptions)
 }
@@ -51,6 +57,8 @@ function doSearch (request, reply) {
   var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    githubUrl: pkg.repository,
     students: students,
     searchText: searchText
   }
@@ -63,6 +71,8 @@ function writeWarning (request, reply) {
   var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    githubUrl: pkg.repository.url,
     student: student
   }
   reply.view('warning', viewOptions)
@@ -71,7 +81,9 @@ function writeWarning (request, reply) {
 function submitWarning (request, reply) {
   var viewOptions = {
     version: pkg.version,
-    versionName: pkg.louie.versionName
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    githubUrl: pkg.repository.url
   }
   // reply.view('index', viewOptions)
   reply.redirect('/')
