@@ -5,6 +5,7 @@ var students = require('../test/data/students')
 var warnings = require('../test/data/warnings')
 var order = require('../lib/categories-order')
 var behaviour = require('../lib/categories-behaviour')
+var warningTypes = require('../lib/categories-warnings')
 
 function filterStudents(studentID) {
   var chosen
@@ -14,6 +15,16 @@ function filterStudents(studentID) {
     }
   })
   return chosen
+}
+
+function filterWarningTypes (isContact) {
+  var filteredList = []
+  warningTypes.forEach(function (type) {
+    if (type.id === 'Karakter' || isContact) {
+      filteredList.push(type)
+    }
+  })
+  return filteredList
 }
 
 function getFrontpage (request, reply) {
@@ -77,7 +88,8 @@ function writeWarning (request, reply) {
     githubUrl: pkg.repository.url,
     student: student,
     order: order,
-    behaviour: behaviour
+    behaviour: behaviour,
+    warningTypes: filterWarningTypes(student.isContact)
   }
   reply.view('warning', viewOptions)
 }
