@@ -28,6 +28,9 @@
     background: #6AC4AE;
     color: #fff
 }
+.mdl-button--fab.mdl-button--colored:hover {
+    background-color: #6AC4AE;
+}
 
 a {
     color: #6AC4AE;
