@@ -17,3 +17,22 @@
     padding: 24px;
     flex: none;
 }
+
+.mdl-layout__header {
+    background-color: #FFD520;
+
+}
+
+.mdl-button--fab.mdl-button--colored {
+    background: #6AC4AE;
+    color: #fff
+}
+
+a {
+    color: #6AC4AE;
+    font-weight: 500
+}
+
+.mdl-card__media{
+    background-color: #6AC4AE;
+}
