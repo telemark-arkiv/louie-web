@@ -8,6 +8,7 @@
     box-sizing:border-box;
     align-items: center;
 }
+
 .mdl-card__actions > .mdl-button--icon {
     margin-right: 3px;
     margin-left: 3px;
@@ -35,4 +36,12 @@ a {
 
 .mdl-card__media{
     background-color: #6AC4AE;
+}
+
+.mdl-color--primary {
+    background-color: #FFD520 !important;
+}
+
+.mdl-button--accent {
+    background-color: #6AC4AE !important;
 }
