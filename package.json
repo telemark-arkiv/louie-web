@@ -8,6 +8,13 @@
     "email": "geir.gasodden@pythonia.no",
     "url": "https://github.com/zrrrzzt"
   },
+  "contributors": [
+    {
+      "name": "Jørgen Johansen",
+      "email": "post@jorgenjohansen.no",
+      "url": "https://jorgenjohansen.no"
+    }
+  ],
   "main": "index.js",
   "engines": {
     "node": ">=4.2.0"
