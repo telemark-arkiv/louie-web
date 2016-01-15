@@ -7,7 +7,7 @@ tap.equal(Object.keys(handlers).length, 7, 'There are 7 different handlers')
 
 tap.ok(handlers.getFrontpage, 'Handler has method getFrontpage')
 
-tap.ok(handlers.getLoginPage, 'Handler has method getLoginPage')
+tap.ok(handlers.showLogin, 'Handler has method showLogin')
 
 tap.ok(handlers.doLogin, 'Handler has method doLogin')
 

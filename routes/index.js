@@ -15,7 +15,7 @@ var routes = [
     method: 'GET',
     path: '/login',
     config: {
-      handler: handlers.getLoginPage,
+      handler: handlers.showLogin,
       description: 'Show the Logingpage',
       auth: false
     }

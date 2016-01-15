@@ -38,29 +38,22 @@ function getFrontpage (request, reply) {
   reply.view('index', viewOptions)
 }
 
-function getLoginPage (request, reply) {
-  var viewOptions = {}
+function showLogin (request, reply) {
+  var viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    githubUrl: pkg.repository.url
+  }
   reply.view('login', viewOptions, {layout: 'layout-login'})
 }
 
 function doLogin (request, reply) {
-  var viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    githubUrl: pkg.repository.url
-  }
-  reply.view('index', viewOptions)
+  reply.redirect('/')
 }
 
 function doLogout (request, reply) {
-  var viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    githubUrl: pkg.repository.url
-  }
-  reply.view('index', viewOptions)
+  reply.redirect('/login')
 }
 
 function doSearch (request, reply) {
@@ -111,7 +104,7 @@ function submitWarning (request, reply) {
 
 module.exports.getFrontpage = getFrontpage
 
-module.exports.getLoginPage = getLoginPage
+module.exports.showLogin = showLogin
 
 module.exports.doLogin = doLogin
 

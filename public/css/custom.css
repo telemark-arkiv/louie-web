@@ -12,3 +12,8 @@
     margin-right: 3px;
     margin-left: 3px;
 }
+
+.mdl-layout__content {
+    padding: 24px;
+    flex: none;
+}
