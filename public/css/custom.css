@@ -52,9 +52,11 @@ a {
 
 .docs-footer.mdl-mini-footer {
     height: 90px;
-    position: absolute;
-    right: 0;
+    position: relative;
+    margin-top: 30%;
     bottom: 0;
-    left: 0;
     padding: 24px;
+}
+.mld-grid{
+    position: relative;
 }
