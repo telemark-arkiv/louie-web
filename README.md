@@ -14,3 +14,8 @@ Start
 ```sh
 $ docker run -d -p 80:3000 --name louie louie
 ```
+
+from prebuild image
+```sh
+$ docker run -d -p 80:3000 --name louie telemark/louie-web
+```
