@@ -1,5 +1,6 @@
 'use strict'
 
+var config = require('../config')
 var pkg = require('../package.json')
 var students = require('../test/data/students')
 var warnings = require('../test/data/warnings')
@@ -33,6 +34,7 @@ function getFrontpage (request, reply) {
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     githubUrl: pkg.repository.url,
+    credentials: request.auth.credentials,
     myWarnings: warnings
   }
   reply.view('index', viewOptions)
@@ -49,11 +51,30 @@ function showLogin (request, reply) {
 }
 
 function doLogin (request, reply) {
+  var jwt = require('jsonwebtoken')
+  var payload = request.payload
+  var username = payload.username
+  var password = payload.password
+  var user = {
+    cn: username
+  }
+  var tokenOptions = {
+    expiresIn: '1h',
+    issuer: 'https://auth.t-fk.no'
+  }
+  var token = jwt.sign(user, config.JWT_SECRET, tokenOptions)
+  request.cookieAuth.set({
+    token: token,
+    isAuthenticated: true,
+    data: user
+  })
+
   reply.redirect('/')
 }
 
 function doLogout (request, reply) {
-  reply.redirect('/login')
+  request.cookieAuth.clear()
+  reply.redirect('/')
 }
 
 function doSearch (request, reply) {
@@ -65,6 +86,7 @@ function doSearch (request, reply) {
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     githubUrl: pkg.repository,
+    credentials: request.auth.credentials,
     students: students,
     searchText: searchText
   }
@@ -79,6 +101,7 @@ function writeWarning (request, reply) {
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
     githubUrl: pkg.repository.url,
+    credentials: request.auth.credentials,
     student: student,
     order: order,
     behaviour: behaviour,
