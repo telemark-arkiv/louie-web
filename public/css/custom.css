@@ -15,18 +15,22 @@
 }
 
 .mdl-layout__content {
-    padding: 24px;
+   /* padding: 24px;*/
     flex: none;
 }
 
 .mdl-layout__header {
     background-color: #FFD520;
+    width: 100%;
 
 }
 
 .mdl-button--fab.mdl-button--colored {
     background: #6AC4AE;
     color: #fff
+}
+.mdl-button--fab.mdl-button--colored:hover {
+    background-color: #6AC4AE;
 }
 
 a {
@@ -44,4 +48,15 @@ a {
 
 .mdl-button--accent {
     background-color: #6AC4AE !important;
+}
+
+.docs-footer.mdl-mini-footer {
+    height: 90px;
+    position: relative;
+    margin-top: 30%;
+    bottom: 0;
+    padding: 24px;
+}
+.mld-grid{
+    position: relative;
 }
