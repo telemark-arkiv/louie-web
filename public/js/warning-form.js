@@ -3,9 +3,11 @@
 function init () {
   var radios = document.querySelectorAll('.mdl-radio__button')
   hideAllCheckboxes()
+  hideAllHeaders()
   Array.prototype.forEach.call(radios, function(el) {
     el.addEventListener('click', function (e) {
       hideAllCheckboxes()
+      hideAllHeaders()
       showMe(e.target.value)
     })
     if (el.checked) {
@@ -25,6 +27,13 @@ function showMe (type) {
 function hideAllCheckboxes () {
   var checkBoxes = document.querySelectorAll('.mdl-checkbox')
   Array.prototype.forEach.call(checkBoxes, function(el) {
+    el.style.display = 'none'
+  })
+}
+
+function hideAllHeaders () {
+  var headers = document.querySelectorAll('.warning-form-header')
+  Array.prototype.forEach.call(headers, function(el) {
     el.style.display = 'none'
   })
 }
