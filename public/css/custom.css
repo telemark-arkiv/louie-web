@@ -45,3 +45,7 @@ a {
 .mdl-button--accent {
     background-color: #6AC4AE !important;
 }
+
+.mdl-button--colored {
+    background-color: #FFD520 !important;
+}
