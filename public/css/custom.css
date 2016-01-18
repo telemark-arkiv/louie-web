@@ -14,8 +14,9 @@
     margin-left: 3px;
 }
 
-.mdl-layout__content {
-    padding: 24px;
+.mdl-layout__container {
+    /*Denne paddingen lager et mellomrom på høyreside som ikke er særlig pent*/
+    /* padding: 24px;*/
     flex: none;
 }
 
@@ -48,4 +49,12 @@ a {
 
 .mdl-button--colored {
     background-color: #FFD520 !important;
+}
+
+.docs-footer.mdl-mini-footer {
+    position: relative;
+    height: 90px;
+    margin-top: 15%;
+    bottom: 0;
+    padding: 24px;
 }
