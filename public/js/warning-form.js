@@ -4,10 +4,12 @@ function init () {
   var radios = document.querySelectorAll('.mdl-radio__button')
   hideAllCheckboxes()
   hideAllHeaders()
+  showPeriodBox()
   Array.prototype.forEach.call(radios, function(el) {
     el.addEventListener('click', function (e) {
       hideAllCheckboxes()
       hideAllHeaders()
+      showPeriodBox()
       showMe(e.target.value)
     })
     if (el.checked) {
@@ -19,6 +21,13 @@ function init () {
 function showMe (type) {
   var thisClass = '.chxBx' + type
   var checkBoxes = document.querySelectorAll(thisClass)
+  Array.prototype.forEach.call(checkBoxes, function(el) {
+    el.style.display = ''
+  })
+}
+
+function showPeriodBox () {
+  var checkBoxes = document.querySelectorAll('.chxBxperiod')
   Array.prototype.forEach.call(checkBoxes, function(el) {
     el.style.display = ''
   })

@@ -1,7 +1,16 @@
-<div class="mdl-typography--headline">Velg varseltype</div>
+<div class="mdl-typography--headline">Type varsel</div>
 {{#each warningTypes}}
     <label for="type-{{id}}" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
         <input type="radio" name="type" value="{{id}}" id="type-{{id}}" class="mdl-radio__button">
         <span class="mdl-radio__label">{{description}}</span>
     </label>
 {{/each}}
+<div class="mdl-typography--headline">Varselet gjelder</div>
+<label for="terminChkboxCourse" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxperiod">
+    <input type="checkbox" name="periodList" value="1. termin" id="terminChkboxCourse" class="mdl-checkbox__input">
+    <span class="mdl-checkbox__label">1. termin</span>
+</label>
+<label for="standpunktChkboxCourse" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxperiod">
+    <input type="checkbox" name="periodList" value="Standpunktvurdering" id="standpunktChkboxCourse" class="mdl-checkbox__input">
+    <span class="mdl-checkbox__label">Standpunktvurdering</span>
+</label>
