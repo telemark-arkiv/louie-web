@@ -58,3 +58,8 @@ a {
     bottom: 0;
     padding: 24px;
 }
+
+.login-container {
+    padding: 24px;
+    flex: none;
+}
