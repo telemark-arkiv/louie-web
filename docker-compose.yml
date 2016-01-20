@@ -1,0 +1,33 @@
+webserver:
+  image: telemark/app-tfk-politikere
+  environment:
+    SERVER_PORT_WEB: 80
+    SERVER_PORT_API: 3000
+    DB_CONNECTION_LOG: mongodb://logserver_1:27017/louie
+    DB_CONNECTION_QUE: mongodb://queserver_1:27017/louie
+    JWT_SECRET: "Louie Louie, oh no, I got to go"
+    COOKIE_SECRET: "Louie Louie, oh no, I got to go"
+    LDAP_URL: "ldap://ldap.forumsys.com:389",
+    LDAP_BIND_DN: "cn=read-only-admin,dc=example,dc=com"
+    LDAP_BIND_CREDENTIALS: "password"
+    LDAP_SEARCH_BASE: "dc=example,dc=com"
+    LDAP_SEARCH_FILTER: "(uid={{username}})"
+  ports:
+    - "80:80"
+  links:
+   - logserver
+   - queserver
+logserver:
+  image: mongo
+  environment:
+    DB: louie
+    COLLECTION: logs
+  ports:
+      - "27017:27017"
+queserver:
+  image: mongo
+  environment:
+    DB: louie
+    COLLECTION: cue
+  ports:
+   - "27017:27017"
