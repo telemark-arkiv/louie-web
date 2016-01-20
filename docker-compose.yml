@@ -1,5 +1,5 @@
 webserver:
-  image: telemark/app-tfk-politikere
+  image: telemark/louie-web
   environment:
     SERVER_PORT_WEB: 80
     SERVER_PORT_API: 3000
