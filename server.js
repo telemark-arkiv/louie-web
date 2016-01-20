@@ -8,7 +8,7 @@ var louieService = require('./index')
 var validate = require('./lib/validateJWT')
 
 server.connection({
-  port: config.SERVER_PORT
+  port: config.SERVER_PORT_WEB
 })
 
 server.register(require('vision'), function (err) {
