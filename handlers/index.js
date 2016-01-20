@@ -52,6 +52,44 @@ function showLogin (request, reply) {
   reply.view('login', viewOptions, {layout: 'layout-login'})
 }
 
+/*
+function doLogin (request, reply) {
+  var jwt = require('jsonwebtoken')
+  var payload = request.payload
+  var username = payload.username
+  var password = payload.password
+  var LdapAuth = require('ldapauth-fork')
+  var auth = new LdapAuth(config.LDAP)
+
+  auth.authenticate(username, password, function (err, user) {
+    if (err) {
+      console.error(JSON.stringify(err))
+    } else {
+      var tokenOptions = {
+        expiresIn: '1h',
+        issuer: 'https://auth.t-fk.no'
+      }
+      var data = {
+        cn: user.cn,
+        uid: user.mailNickname || ''
+      }
+      var token = jwt.sign(data, config.JWT_SECRET, tokenOptions)
+      request.cookieAuth.set({
+        token: token,
+        isAuthenticated: true,
+        data: data
+      })
+      auth.close(function (err) {
+        if (err) {
+          console.error(err)
+        }
+      })
+      reply.redirect('/')
+    }
+  })
+}
+*/
+
 function doLogin (request, reply) {
   var jwt = require('jsonwebtoken')
   var payload = request.payload
