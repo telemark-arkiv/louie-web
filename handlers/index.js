@@ -33,6 +33,7 @@ function getFrontpage (request, reply) {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.dusteNavn,
     githubUrl: pkg.repository.url,
     credentials: request.auth.credentials,
     myWarnings: warnings
@@ -45,6 +46,7 @@ function showLogin (request, reply) {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.dusteNavn,
     githubUrl: pkg.repository.url
   }
   reply.view('login', viewOptions, {layout: 'layout-login'})
@@ -85,6 +87,7 @@ function doSearch (request, reply) {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.dusteNavn,
     githubUrl: pkg.repository,
     credentials: request.auth.credentials,
     students: students,
@@ -100,6 +103,7 @@ function writeWarning (request, reply) {
     version: pkg.version,
     versionName: pkg.louie.versionName,
     versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.dusteNavn,
     githubUrl: pkg.repository.url,
     credentials: request.auth.credentials,
     student: student,
