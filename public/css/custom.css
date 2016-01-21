@@ -9,30 +9,8 @@
     align-items: center;
 }
 
-.mdl-card__actions > .mdl-button--icon {
-    margin-right: 3px;
-    margin-left: 3px;
-}
-
-.mdl-layout__container {
-    /*Denne paddingen lager et mellomrom på høyreside som ikke er særlig pent*/
-    /* padding: 24px;*/
-    flex: none;
-}
-
 .mdl-layout__header {
     background-color: #FFD520;
-
-}
-
-.mdl-button--fab.mdl-button--colored {
-    background: #6AC4AE;
-    color: #fff
-}
-
-a {
-    color: #6AC4AE;
-    font-weight: 500
 }
 
 .mdl-card__media{
