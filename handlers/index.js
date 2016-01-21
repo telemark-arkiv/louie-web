@@ -2,10 +2,10 @@
 
 var mongojs = require('mongojs')
 var config = require('../config')
-// var dblog = mongojs(config.DB_CONNECTION_LOG)
-// var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
-// var logs = dblog.collection('logs')
-// var queue = dbqueue.collection('queue')
+var dblog = mongojs(config.DB_CONNECTION_LOG)
+var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
+var logs = dblog.collection('logs')
+var queue = dbqueue.collection('queue')
 var pkg = require('../package.json')
 var students = require('../test/data/students')
 var warnings = require('../test/data/warnings')
@@ -163,8 +163,7 @@ function submitWarning (request, reply) {
   data.studentId = request.params.studentID
   var postData = prepareWarning(data)
   /*
-  var data = request.payload
-  queue.save(data, function(error, doc) {
+  queue.save(postData, function(error, doc) {
     if (error) {
       console.error(error)
     } else {

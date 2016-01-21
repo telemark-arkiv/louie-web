@@ -1,5 +1,5 @@
 webserver:
-  #image: telemark/louie-web
+  # image: telemark/louie-web
   build: .
   environment:
     SERVER_PORT_WEB: 80
@@ -20,12 +20,12 @@ webserver:
    - logserver
    - queueserver
 logserver:
-  image: mongo
+  image: mvertes/alpine-mongo
   environment:
     DB: louie
     COLLECTION: logs
 queueserver:
-  image: mongo
+  image: mvertes/alpine-mongo
   environment:
     DB: louie
     COLLECTION: queue
