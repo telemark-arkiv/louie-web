@@ -1,6 +1,11 @@
 'use strict'
 
+var mongojs = require('mongojs')
 var config = require('../config')
+// var dblog = mongojs(config.DB_CONNECTION_LOG)
+// var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
+// var logs = dblog.collection('logs')
+// var queue = dbqueue.collection('queue')
 var pkg = require('../package.json')
 var students = require('../test/data/students')
 var warnings = require('../test/data/warnings')
@@ -153,7 +158,17 @@ function writeWarning (request, reply) {
 }
 
 function submitWarning (request, reply) {
-  // var data = request.payload
+  /*
+  var data = request.payload
+  queue.save(data, function(error, doc) {
+    if (error) {
+      console.error(error)
+    } else {
+      console.log(doc)
+      reply.redirect('/')
+    }
+  })
+  */
   /*
   var viewOptions = {
     version: pkg.version,

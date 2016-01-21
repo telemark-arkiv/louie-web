@@ -6,8 +6,10 @@
 // searchFilter: '(sAMAccountName={{username}})'
 
 var config = {
-  SERVER_PORT_WEB: process.env.SERVER_PORT || 8000,
-  SERVER_PORT_API: process.env.SERVER_PORT || 3000,
+  SERVER_PORT_WEB: process.env.SERVER_PORT_WEB || 8000,
+  SERVER_PORT_API: process.env.SERVER_PORT_API || 3000,
+  DB_CONNECTION_LOG: process.env.DB_CONNECTION_LOG || 'mongodb://logserver/louie',
+  DB_CONNECTION_QUEUE: process.env.DB_CONNECTION_QUEUE || 'mongodb://queueserver/louie',
   JWT_SECRET: process.env.JWT_SECRET || 'Louie Louie, oh no, I got to go',
   COOKIE_SECRET: process.env.JWT_SECRET || 'Louie Louie, oh no, I got to go',
   LDAP: {
