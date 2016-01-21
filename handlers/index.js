@@ -9,6 +9,7 @@ var config = require('../config')
 var pkg = require('../package.json')
 var students = require('../test/data/students')
 var warnings = require('../test/data/warnings')
+var prepareWarning = require('../lib/prepare-warning')
 var order = require('../lib/categories-order')
 var behaviour = require('../lib/categories-behaviour')
 var warningTypes = require('../lib/categories-warnings')
@@ -158,6 +159,9 @@ function writeWarning (request, reply) {
 }
 
 function submitWarning (request, reply) {
+  var data = request.payload
+  data.studentId = request.params.studentID
+  var postData = prepareWarning(data)
   /*
   var data = request.payload
   queue.save(data, function(error, doc) {
