@@ -1,12 +1,12 @@
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--3-col"></div>
   <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
-    <form action="/warning/{{student.fodselsnummer}}" method="post">
-      <input type="hidden" name="studentName" value="{{student.name}}">
-      <input type="hidden" name="schoolId" value="{{student.skoleId}}">
-      <input type="hidden" name="schoolName" value="{{student.skoleNavn}}">
+    <form action="/warning/{{student.personalIdNumber}}" method="post">
+      <input type="hidden" name="studentName" value="{{student.fullName}}">
+      <input type="hidden" name="schoolId" value="{{student.unitId}}">
+      <input type="hidden" name="schoolName" value="{{student.unitName}}">
     <div class="mdl-card__title mdl-color-text--black">
-      <h2 class="mdl-card__title-text">{{student.name}}</h2>
+      <h2 class="mdl-card__title-text">{{student.fullName}}</h2>
     </div>
     <div class="mdl-card__supporting-text mdl-color-text--black">
       {{>warning-type-list}}

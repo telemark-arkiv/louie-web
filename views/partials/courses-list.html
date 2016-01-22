@@ -1,8 +1,8 @@
 <div class="mdl-typography--headline warning-form-header chxBxkarakter">Velg fag varselet gjelder</div>
-{{#each student.mineFag}}
-    <label for="courseChkbox{{fagkode}}" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxkarakter">
-        <input type="checkbox" name="coursesList" value="{{fagkode}} - {{fagnavn}}" id="courseChkbox{{fagkode}}" class="mdl-checkbox__input">
-        <span class="mdl-checkbox__label">{{fagkode}} - {{fagnavn}}</span>
+{{#each student.groups}}
+    <label for="courseChkbox{{id}}" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxkarakter">
+        <input type="checkbox" name="coursesList" value="{{id}}" id="courseChkbox{{id}}" class="mdl-checkbox__input">
+        <span class="mdl-checkbox__label">{{description}}</span>
     </label>
 {{/each}}
 <div class="mdl-typography--headline warning-form-header chxBxkarakter">Årsak til varsel</div>

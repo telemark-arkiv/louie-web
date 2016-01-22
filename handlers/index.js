@@ -17,7 +17,7 @@ var warningTypes = require('../lib/categories-warnings')
 function filterStudents (studentID) {
   var chosen
   students.forEach(function (student) {
-    if (student.fodselsnummer === studentID) {
+    if (student.personalIdNumber === studentID) {
       chosen = student
     }
   })
@@ -35,11 +35,10 @@ function filterWarningTypes (isContact) {
 }
 
 function getFrontpage (request, reply) {
-  logs.find({'userId': request.auth.credentials.data.userId}, function (error, data) {
+  logs.find({'userId': request.auth.credentials.data.userId}).sort({timeStamp: -1}, function (error, data) {
     if (error) {
       console.error(error)
     }
-    console.log(data)
     var viewOptions = {
       version: pkg.version,
       versionName: pkg.louie.versionName,
