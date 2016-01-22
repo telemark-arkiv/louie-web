@@ -1,11 +1,11 @@
 'use strict'
 
-// var mongojs = require('mongojs')
+var mongojs = require('mongojs')
 var config = require('../config')
-// var dblog = mongojs(config.DB_CONNECTION_LOG)
-// var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
-// var logs = dblog.collection('logs')
-// var queue = dbqueue.collection('queue')
+var dblog = mongojs(config.DB_CONNECTION_LOG)
+var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
+var logs = dblog.collection('logs')
+var queue = dbqueue.collection('queue')
 var pkg = require('../package.json')
 var students = require('../test/data/students')
 var warnings = require('../test/data/warnings')
@@ -35,16 +35,22 @@ function filterWarningTypes (isContact) {
 }
 
 function getFrontpage (request, reply) {
-  var viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    systemName: pkg.louie.dusteNavn,
-    githubUrl: pkg.repository.url,
-    credentials: request.auth.credentials,
-    myWarnings: warnings
-  }
-  reply.view('index', viewOptions)
+  logs.find({'userId': request.auth.credentials.data.userId}, function (error, data) {
+    if (error) {
+      console.error(error)
+    }
+    console.log(data)
+    var viewOptions = {
+      version: pkg.version,
+      versionName: pkg.louie.versionName,
+      versionVideoUrl: pkg.louie.versionVideoUrl,
+      systemName: pkg.louie.dusteNavn,
+      githubUrl: pkg.repository.url,
+      credentials: request.auth.credentials,
+      myWarnings: data
+    }
+    reply.view('index', viewOptions)
+  })
 }
 
 function showLogin (request, reply) {
@@ -58,7 +64,6 @@ function showLogin (request, reply) {
   reply.view('login', viewOptions, {layout: 'layout-login'})
 }
 
-/*
 function doLogin (request, reply) {
   var jwt = require('jsonwebtoken')
   var payload = request.payload
@@ -77,7 +82,7 @@ function doLogin (request, reply) {
       }
       var data = {
         cn: user.cn,
-        userId: user.mailNickname || ''
+        userId: user.sAMAccountName || ''
       }
       var token = jwt.sign(data, config.JWT_SECRET, tokenOptions)
       request.cookieAuth.set({
@@ -94,8 +99,8 @@ function doLogin (request, reply) {
     }
   })
 }
-*/
 
+/*
 function doLogin (request, reply) {
   var jwt = require('jsonwebtoken')
   var payload = request.payload
@@ -118,6 +123,7 @@ function doLogin (request, reply) {
 
   reply.redirect('/')
 }
+*/
 
 function doLogout (request, reply) {
   request.cookieAuth.clear()
@@ -166,17 +172,17 @@ function submitWarning (request, reply) {
   data.userId = user.userId
   data.userName = user.cn
   var postData = prepareWarning(data)
-  console.log(postData)
-  /*
+  // console.log(postData)
   queue.save(postData, function(error, doc) {
     if (error) {
       console.error(error)
     } else {
-      console.log(doc)
+      postData.documentId = doc._id
+      postData.documentStatus = 'I kø'
+      logs.save(postData)
       reply.redirect('/')
     }
   })
-  */
   /*
   var viewOptions = {
     version: pkg.version,
@@ -187,7 +193,7 @@ function submitWarning (request, reply) {
   */
   // console.log(data)
   // reply.view('index', viewOptions)
-  reply.redirect('/')
+  //reply.redirect('/')
 }
 
 module.exports.getFrontpage = getFrontpage

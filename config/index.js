@@ -6,6 +6,7 @@
 // searchFilter: '(sAMAccountName={{username}})'
 
 function ldapTlsSettings () {
+  var fs = require('fs')
   var config = false
 
   if (process.env.LDAP_TLS_REJECT_UNAUTHORIZED && process.env.LDAP_TLS_CA_PATH) {
