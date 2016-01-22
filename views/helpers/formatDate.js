@@ -12,7 +12,7 @@ var monthNames = {
   9: 'september',
   10: 'oktober',
   11: 'november',
-  12: 'desember',
+  12: 'desember'
 }
 
 module.exports = function (datestring) {

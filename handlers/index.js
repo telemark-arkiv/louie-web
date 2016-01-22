@@ -8,7 +8,6 @@ var logs = dblog.collection('logs')
 var queue = dbqueue.collection('queue')
 var pkg = require('../package.json')
 var students = require('../test/data/students')
-var warnings = require('../test/data/warnings')
 var prepareWarning = require('../lib/prepare-warning')
 var order = require('../lib/categories-order')
 var behaviour = require('../lib/categories-behaviour')
@@ -172,7 +171,7 @@ function submitWarning (request, reply) {
   data.userName = user.cn
   var postData = prepareWarning(data)
   // console.log(postData)
-  queue.save(postData, function(error, doc) {
+  queue.save(postData, function (error, doc) {
     if (error) {
       console.error(error)
     } else {
@@ -192,7 +191,7 @@ function submitWarning (request, reply) {
   */
   // console.log(data)
   // reply.view('index', viewOptions)
-  //reply.redirect('/')
+  // reply.redirect('/')
 }
 
 module.exports.getFrontpage = getFrontpage
