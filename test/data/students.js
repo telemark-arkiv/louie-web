@@ -4,6 +4,8 @@ var students = [
   {
     name: 'Hallgrim Durk',
     fodselsnummer: '18117148321',
+    skoleId: '0987635467484',
+    skoleNavn: 'Birger Bønks videregående skole',
     alleFag: [
       {
         fagkode: '187284/8740',
@@ -45,6 +47,8 @@ var students = [
   {
     name: 'Helga Durk',
     fodselsnummer: '220475148321',
+    skoleId: '0987635467484',
+    skoleNavn: 'Birger Bønks videregående skole',
     alleFag: [
       {
         fagkode: '187284/8740',

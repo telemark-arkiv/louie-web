@@ -1,20 +1,20 @@
 <div class="mdl-typography--headline">Type varsel</div>
 {{#each warningTypes}}
     <label for="type-{{id}}" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-        <input type="radio" name="type" value="{{id}}" id="type-{{id}}" class="mdl-radio__button">
+        <input type="radio" name="type" value="{{id}}" id="type-{{id}}" class="mdl-radio__button warning-type-selector">
         <span class="mdl-radio__label">{{description}}</span>
     </label>
 {{/each}}
 <div class="mdl-typography--headline">Varselet gjelder</div>
-<label for="terminChkboxCourse1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxperiod">
-    <input type="checkbox" name="periodList" value="1. termin" id="terminChkboxCourse1" class="mdl-checkbox__input">
-    <span class="mdl-checkbox__label">1. termin</span>
+<label for="terminRadioCourse1" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+    <input type="radio" name="warningPeriod" value="1. termin" id="terminRadioCourse1" class="mdl-radio__button">
+    <span class="mdl-radio__label">1. termin</span>
 </label>
-<label for="terminChkboxCourse2" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxperiod">
-    <input type="checkbox" name="periodList" value="2. termin" id="terminChkboxCourse2" class="mdl-checkbox__input">
-    <span class="mdl-checkbox__label">2. termin</span>
+<label for="terminRadioCourse2" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+    <input type="radio" name="warningPeriod" value="2. termin" id="terminRadioCourse2" class="mdl-radio__button">
+    <span class="mdl-radio__label">2. termin</span>
 </label>
-<label for="standpunktChkboxCourse" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect chxBxperiod">
-    <input type="checkbox" name="periodList" value="Standpunktvurdering" id="standpunktChkboxCourse" class="mdl-checkbox__input">
-    <span class="mdl-checkbox__label">Standpunktvurdering</span>
+<label for="terminRadioCourse3" class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+    <input type="radio" name="warningPeriod" value="Standpunktvurdering" id="terminRadioCourse3" class="mdl-radio__button">
+    <span class="mdl-radio__label">Standpunktvurdering</span>
 </label>

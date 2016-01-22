@@ -1,11 +1,11 @@
 'use strict'
 
-var mongojs = require('mongojs')
+// var mongojs = require('mongojs')
 var config = require('../config')
-var dblog = mongojs(config.DB_CONNECTION_LOG)
-var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
-var logs = dblog.collection('logs')
-var queue = dbqueue.collection('queue')
+// var dblog = mongojs(config.DB_CONNECTION_LOG)
+// var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
+// var logs = dblog.collection('logs')
+// var queue = dbqueue.collection('queue')
 var pkg = require('../package.json')
 var students = require('../test/data/students')
 var warnings = require('../test/data/warnings')
@@ -77,7 +77,7 @@ function doLogin (request, reply) {
       }
       var data = {
         cn: user.cn,
-        uid: user.mailNickname || ''
+        userId: user.mailNickname || ''
       }
       var token = jwt.sign(data, config.JWT_SECRET, tokenOptions)
       request.cookieAuth.set({
@@ -100,9 +100,10 @@ function doLogin (request, reply) {
   var jwt = require('jsonwebtoken')
   var payload = request.payload
   var username = payload.username
-  var password = payload.password
+  // var password = payload.password
   var user = {
-    cn: username
+    cn: username,
+    userId: username
   }
   var tokenOptions = {
     expiresIn: '1h',
@@ -159,9 +160,13 @@ function writeWarning (request, reply) {
 }
 
 function submitWarning (request, reply) {
+  var user = request.auth.credentials.data
   var data = request.payload
   data.studentId = request.params.studentID
+  data.userId = user.userId
+  data.userName = user.cn
   var postData = prepareWarning(data)
+  console.log(postData)
   /*
   queue.save(postData, function(error, doc) {
     if (error) {
