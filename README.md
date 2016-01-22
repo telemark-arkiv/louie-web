@@ -1,17 +1,7 @@
+[![Build Status](https://travis-ci.org/telemark/louie-web.svg?branch=master)](https://travis-ci.org/telemark/louie-web)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 # louie-web
 Webinterface for Louie
-
-## Testing
-
-Using the excellent test-server from [forumsys](http://www.forumsys.com/tutorials/integration-how-to/ldap/online-ldap-test-server/)
-
-```
-username: riemann
-password: password
-
-username: gauss
-password: password
-```
 
 ## Docker
 
