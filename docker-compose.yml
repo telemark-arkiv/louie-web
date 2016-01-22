@@ -13,6 +13,7 @@ webserver:
     LDAP_BIND_CREDENTIALS: "password"
     LDAP_SEARCH_BASE: "dc=example,dc=com"
     LDAP_SEARCH_FILTER: "(uid={{username}})"
+    # LDAP_TLS_SETTINGS: 1
     # LDAP_TLS_REJECT_UNAUTHORIZED: true
     # LDAP_TLS_CA_PATH: secretpath/secretfile.cer
   ports:
