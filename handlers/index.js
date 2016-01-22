@@ -165,7 +165,6 @@ function submitWarning (request, reply) {
   data.studentId = request.params.studentID
   data.userId = user.userId
   data.userName = user.cn
-  console.log(data)
   var postData = prepareWarning(data)
   console.log(postData)
   /*
