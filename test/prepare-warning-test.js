@@ -13,8 +13,8 @@ tap.throws(
 )
 
 tap.test('It returns expected result from adferd', function (test) {
-  var data = require('./data/adferd-post-data.json')
-  var expected = require('./data/adferd-prepared-data.json')
+  var data = require('./data/atferd-post-data.json')
+  var expected = require('./data/atferd-prepared-data.json')
   var result = prepareWarning(data)
   tap.ok(result.timeStamp, 'timeStamp exists')
   delete result.timeStamp
@@ -23,8 +23,8 @@ tap.test('It returns expected result from adferd', function (test) {
 })
 
 tap.test('It returns expected result from adferd single', function (test) {
-  var data = require('./data/adferd-post-data-single.json')
-  var expected = require('./data/adferd-prepared-data-single.json')
+  var data = require('./data/atferd-post-data-single.json')
+  var expected = require('./data/atferd-prepared-data-single.json')
   var result = prepareWarning(data)
   tap.ok(result.timeStamp, 'timeStamp exists')
   delete result.timeStamp

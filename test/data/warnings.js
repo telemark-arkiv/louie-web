@@ -3,7 +3,7 @@
 var warnings = [
   {
     name: 'Vanja Valjord Christensen',
-    type: 'adferd',
+    type: 'atferd',
     status: 'i kø',
     timestamp: '2016-01-24 10:13'
   },
@@ -27,7 +27,7 @@ var warnings = [
   },
   {
     name: 'Preben Pols',
-    type: 'adferd',
+    type: 'atferd',
     status: 'sendt',
     timestamp: '2015-12-01 09:05'
   },
