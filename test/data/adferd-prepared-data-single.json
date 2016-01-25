@@ -7,5 +7,5 @@
   "schoolName": "Birger Bønks videregående skole",
   "documentType": "varsel",
   "documentCategory": "adferd",
-  "documentBody": "Eleven har uakseptabel munnbruk"
+  "behaviourCategories": "Eleven har uakseptabel munnbruk"
 }

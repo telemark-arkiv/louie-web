@@ -7,5 +7,5 @@
   "schoolName": "Birger Bønks videregående skole",
   "documentType": "varsel",
   "documentCategory": "orden",
-  "documentBody": "Eleven har ikke nødvendig skolemateriell klart til time"
+  "orderCategories": "Eleven har ikke nødvendig skolemateriell klart til time"
 }
