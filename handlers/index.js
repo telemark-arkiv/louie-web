@@ -181,17 +181,6 @@ function submitWarning (request, reply) {
       reply.redirect('/')
     }
   })
-  /*
-  var viewOptions = {
-    version: pkg.version,
-    versionName: pkg.louie.versionName,
-    versionVideoUrl: pkg.louie.versionVideoUrl,
-    githubUrl: pkg.repository.url
-  }
-  */
-  // console.log(data)
-  // reply.view('index', viewOptions)
-  // reply.redirect('/')
 }
 
 module.exports.getFrontpage = getFrontpage
