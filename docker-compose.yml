@@ -18,7 +18,6 @@ webserver:
     # LDAP_TLS_CA_PATH: secretpath/secretfile.cer
   ports:
     - "80:80"
-    - "3000:3000"
   links:
    - logserver
    - queueserver
