@@ -11,7 +11,7 @@ function ldapTlsSettings () {
 
   if (process.env.LDAP_TLS_SETTINGS) {
     config = {
-      rejectUnauthorized: process.env.LDAP_TLS_REJECT_UNAUTHORIZED ? true: false
+      rejectUnauthorized: process.env.LDAP_TLS_REJECT_UNAUTHORIZED ? true : false, // eslint-disable-line no-unneeded-ternary
       ca: [
         fs.readFileSync(__dirname + process.env.LDAP_TLS_CA_PATH)
       ]
