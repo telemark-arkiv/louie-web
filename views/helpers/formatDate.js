@@ -17,5 +17,5 @@ var monthNames = {
 
 module.exports = function (datestring) {
   var date = new Date(datestring)
-  return date.getDay() + '. ' + monthNames[date.getMonth() + 1] + ' ' + date.getFullYear()
+  return date.getDate() + '. ' + monthNames[date.getMonth() + 1] + ' ' + date.getFullYear()
 }
