@@ -15,13 +15,41 @@
       {{>behaviour-categories-list}}
     </div>
     <div class="mdl-card__actions mdl-card--border">
-      <a href="/" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Slett varsel"><i class="material-icons">delete</i></a>
+      <a href="/" id="deleteWarning" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black" title="Slett varsel"><i class="material-icons">delete</i></a>
       <div class="mdl-layout-spacer"></div>
-      <button type="submit" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black"><i class="material-icons">email</i></button>
+      <a href="" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black modal__trigger" data-modal="#previewModal"><i class="material-icons">description</i></a>
+      <span class="margin-right-5"></span>
+      <button type="submit" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color-text--black material-icons">email</button>
     </div>
     </form>
   </div>
   <div class="mdl-cell mdl-cell--3-col"></div>
+
+</div>
+
+<div id="previewModal" class="modal modal__bg">
+  <div class="modal__dialog">
+    <div class="modal__content">
+      <div class="modal__header">
+        <div class="modal__title">
+          <h2 class="modal__title-text">{{student.fullName}}</h2>
+        </div>
+        <span class="mdl-button mdl-button--icon mdl-js-button  material-icons  modal__close"></span>
+      </div>
+      <div id="warningPreviewText" class="modal__text">
+        <ul>
+          <li>Eleven forstyrrer undervisning eller skoleaktivitet</li>
+          <li>Eleven forlater undervisning uten avklaring med lærer</li>
+          <li>Eleven har begått andre atferdsbrudd</li>
+        </ul>
+      </div>
+      <div class="modal__footer">
+        <a class="mdl-button mdl-button--colored mdl-js-button modal__close mdl-color-text--black">
+          Lukk
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Helperscript for form -->
