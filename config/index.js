@@ -1,5 +1,9 @@
 'use strict'
 
+// For local testing
+// process.env.DB_CONNECTION_LOG = 'mongodb://localhost:27017/louie'
+// process.env.DB_CONNECTION_QUEUE = 'mongodb://localhost:27017/louie'
+
 // For OpenLDAP:
 // searchFilter: process.env.LDAP_SEARCH_FILTER || '(uid={{username}})'
 // For Active Directory:

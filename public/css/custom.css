@@ -49,3 +49,11 @@
 .margin-right-5 {
     margin-left: 5px;
 }
+
+.previewUL {
+    list-style-type: none;
+}
+
+.modal__dialog {
+    width: 600px;
+}

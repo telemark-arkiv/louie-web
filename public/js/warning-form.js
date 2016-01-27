@@ -2,6 +2,7 @@
 
 function init () {
   var radios = document.querySelectorAll('.warning-type-selector')
+  var checkboxes = document.querySelectorAll('.mdl-checkbox')
   hideAllCheckboxes()
   hideAllHeaders()
   Array.prototype.forEach.call(radios, function(el) {
@@ -9,11 +10,19 @@ function init () {
       hideAllCheckboxes()
       hideAllHeaders()
       showMe(e.target.value)
+      buildPreview()
     })
     if (el.checked) {
       showMe(el.value)
     }
   })
+  Array.prototype.forEach.call(checkboxes, function(el) {
+    el.addEventListener('click', function (e) {
+      buildPreview()
+    })
+  })
+
+
 }
 
 function showMe (type) {
@@ -37,6 +46,55 @@ function hideAllHeaders () {
     el.style.display = 'none'
   })
 }
+
+function addLi(txt) {
+  var ul = document.getElementById('warningPreviewText')
+  var li = document.createElement('li')
+  li.innerHTML = txt
+  ul.appendChild(li)
+}
+
+function buildPreview () {
+  var ul = document.getElementById('warningPreviewText')
+  var warningTypes = document.querySelectorAll('.warning-type-selector')
+  var periods = document.querySelectorAll('.period-selector')
+  var checkBoxes = document.querySelectorAll('.mdl-checkbox__input')
+  var printCourse = true
+  var arsakCourse = document.getElementById('courseChkboxCourse')
+
+  ul.innerHTML = ''
+
+  Array.prototype.forEach.call(warningTypes, function(el) {
+    if (el.checked) {
+      var msg = 'Type: ' + '<strong>' + el.value + '</strong>'
+      addLi(msg)
+    }
+  })
+
+  Array.prototype.forEach.call(periods, function(el) {
+    if (el.checked) {
+      var msg = 'Periode: ' + '<strong>' + el.value + '</strong>'
+      addLi(msg)
+    }
+  })
+
+  addLi('Årsak til varsel:')
+  if (arsakCourse.checked) {
+    addLi(arsakCourse.value)
+  }
+
+  Array.prototype.forEach.call(checkBoxes, function(el) {
+    if (el.checked && printCourse && /courseChkbox/.test(el.id)) {
+      addLi('Varselet gjelder følgende fag:')
+      printCourse = false
+    }
+    if (el.checked && el.id !== 'courseChkboxCourse') {
+      addLi('<strong>' + el.value + '</strong>')
+    }
+  })
+
+}
+
 
 function ready (fn) {
   if (document.readyState != 'loading'){

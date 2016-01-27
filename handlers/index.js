@@ -122,7 +122,6 @@ function doLogin (request, reply) {
   reply.redirect('/')
 }
 */
-
 function doLogout (request, reply) {
   request.cookieAuth.clear()
   reply.redirect('/')
