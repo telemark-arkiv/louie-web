@@ -121,8 +121,6 @@ function validateWarning () {
     }
   })
 
-  console.log(type)
-
   Array.prototype.forEach.call(periods, function(el) {
     if (el.checked) {
       periodOK = true
@@ -142,8 +140,6 @@ function validateWarning () {
       }
     }
   })
-
-  console.log(checkboxCount)
 
   if (type === 'karakter' && arsakCourse.checked) {
     reasonOK = true

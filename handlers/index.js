@@ -208,13 +208,17 @@ function submitWarning (request, reply) {
   data.userId = user.userId
   data.userName = user.cn
   var postData = prepareWarning(data)
-  // console.log(postData)
   queue.save(postData, function (error, doc) {
     if (error) {
       console.error(error)
     } else {
-      postData.documentId = doc._id
-      postData.documentStatus = 'I kø'
+      postData.documentId = doc._id.toString()
+      postData.documentStatus = [
+        {
+          timeStamp: new Date().getTime(),
+          status: 'I kø'
+        }
+      ]
       logs.save(postData)
       reply.redirect('/')
     }

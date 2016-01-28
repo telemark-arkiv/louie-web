@@ -1,6 +1,7 @@
 'use strict'
 
 var handlers = require('../handlers')
+var api = require('../handlers/api')
 
 var routes = [
   {
@@ -74,8 +75,34 @@ var routes = [
       handler: handlers.submitWarning,
       description: 'Get student by {studentID}'
     }
+  },
+  {
+    method: 'get',
+    path: '/api/queue/next',
+    config: {
+      handler: api.getNextFromQueue,
+      description: 'Get next job from queue',
+      auth: false
+    }
+  },
+  {
+    method: 'delete',
+    path: '/api/queue/{jobId}',
+    config: {
+      handler: api.deleteFromQueue,
+      description: 'Delete job from queue',
+      auth: false
+    }
+  },
+  {
+    method: 'post',
+    path: '/api/logs/{documentId}',
+    config: {
+      handler: api.addStatusToLog,
+      description: 'Adds status to log',
+      auth: false
+    }
   }
-
 ]
 
 module.exports = routes
