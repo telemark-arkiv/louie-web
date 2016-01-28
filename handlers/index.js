@@ -52,7 +52,14 @@ function getFrontpage (request, reply) {
 }
 
 function getLogspage (request, reply) {
-  logs.find({'userId': request.auth.credentials.data.userId}).sort({timeStamp: -1}, function (error, data) {
+  var query = {
+    'userId': request.auth.credentials.data.userId
+  }
+  if (request.query.studentId) {
+    query.studentId = request.query.studentId
+  }
+
+  logs.find(query).sort({timeStamp: -1}, function (error, data) {
     if (error) {
       console.error(error)
     }
