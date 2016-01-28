@@ -13,16 +13,6 @@ var order = require('../lib/categories-order')
 var behaviour = require('../lib/categories-behaviour')
 var warningTypes = require('../lib/categories-warnings')
 
-function filterStudents (studentID) {
-  var chosen
-  students.forEach(function (student) {
-    if (student.personalIdNumber === studentID) {
-      chosen = student
-    }
-  })
-  return chosen
-}
-
 function filterWarningTypes (isContact) {
   var filteredList = []
   warningTypes.forEach(function (type) {
@@ -180,10 +170,22 @@ function doSearch (request, reply) {
     students: students,
     searchText: searchText
   }
+  request.cookieAuth.set('searchResults', students)
   reply.view('search-results', viewOptions)
 }
 
 function writeWarning (request, reply) {
+
+  function filterStudents (studentID) {
+    var chosen
+    request.auth.credentials.searchResults.forEach(function (student) {
+      if (student.personalIdNumber === studentID) {
+        chosen = student
+      }
+    })
+    return chosen
+  }
+
   var studentID = request.params.studentID
   var student = filterStudents(studentID)
   var viewOptions = {
