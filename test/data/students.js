@@ -8,29 +8,24 @@ var students = [
     fullName: 'Hallgrim Durk',
     personalIdNumber: '18117148321',
     userName: 'haldu',
-    unitId: '0987635467484',
+    unitId: 'SKIVS',
     unitName: 'Birger Bønks videregående skole',
     orgId: '',
     groups: [
       {
-        id: '187284/8740',
-        displayName: 'Popcornpopping vg 2',
-        description: 'Popcornpopping vg 2'
+        id: 'SKIVS:2SAA/151KRO1005',
+        description: 'Kroppsøving',
+        unitId: 'SKIVS'
       },
       {
-        id: '187284/8750',
-        displayName: 'Filmvitenskap for sangere',
-        description: 'Filmvitenskap for sangere'
+        id: 'SKIVS:1STH/151SAF1001',
+        description: 'Samfunnsfag',
+        unitId: 'SKIVS'
       },
       {
-        id: '187284/8760',
-        displayName: 'Elgjakt uten våpen',
-        description: 'Elgjakt uten våpen'
-      },
-      {
-        id: '187284/8770',
-        displayName: 'Produktbeskrivelser for boksfisk',
-        description: 'Produktbeskrivelser for boksfisk'
+        id: 'SKIVS:1STC/151GEO1001',
+        description: 'Geografi',
+        unitId: 'SKIVS'
       }
     ],
     isContact: true
@@ -42,14 +37,14 @@ var students = [
     fullName: 'Helga Durk',
     personalIdNumber: '220475148321',
     userName: 'heldu',
-    unitId: '0987635467484',
+    unitId: 'SKIVS',
     unitNavn: 'Birger Bønks videregående skole',
     orgId: '',
     groups: [
       {
-        id: '187284/8740',
-        displayName: 'Popcornpopping vg 2',
-        description: 'Popcornpopping vg 2'
+        id: 'SKIVS:2SAA/151KRO1005',
+        description: 'Kroppsøving',
+        unitId: 'SKIVS'
       }
     ],
     isContact: false
