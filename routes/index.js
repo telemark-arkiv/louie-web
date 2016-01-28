@@ -13,6 +13,22 @@ var routes = [
   },
   {
     method: 'GET',
+    path: '/logs',
+    config: {
+      handler: handlers.getLogspage,
+      description: 'Show the logspage'
+    }
+  },
+  {
+    method: 'GET',
+    path: '/help',
+    config: {
+      handler: handlers.getHelppage,
+      description: 'Show the helppage'
+    }
+  },
+  {
+    method: 'GET',
     path: '/login',
     config: {
       handler: handlers.showLogin,

@@ -45,10 +45,40 @@ function getFrontpage (request, reply) {
       systemName: pkg.louie.dusteNavn,
       githubUrl: pkg.repository.url,
       credentials: request.auth.credentials,
-      myWarnings: data
+      logs: data
     }
     reply.view('index', viewOptions)
   })
+}
+
+function getLogspage (request, reply) {
+  logs.find({'userId': request.auth.credentials.data.userId}).sort({timeStamp: -1}, function (error, data) {
+    if (error) {
+      console.error(error)
+    }
+    var viewOptions = {
+      version: pkg.version,
+      versionName: pkg.louie.versionName,
+      versionVideoUrl: pkg.louie.versionVideoUrl,
+      systemName: pkg.louie.dusteNavn,
+      githubUrl: pkg.repository.url,
+      credentials: request.auth.credentials,
+      logs: data
+    }
+    reply.view('logs', viewOptions)
+  })
+}
+
+function getHelppage (request, reply) {
+  var viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.dusteNavn,
+    githubUrl: pkg.repository.url,
+    credentials: request.auth.credentials
+  }
+  reply.view('help', viewOptions)
 }
 
 function showLogin (request, reply) {
@@ -99,6 +129,7 @@ function doLogin (request, reply) {
 }
 
 /*
+// For local testing
 function doLogin (request, reply) {
   var jwt = require('jsonwebtoken')
   var payload = request.payload
@@ -122,6 +153,7 @@ function doLogin (request, reply) {
   reply.redirect('/')
 }
 */
+
 function doLogout (request, reply) {
   request.cookieAuth.clear()
   reply.redirect('/')
@@ -183,6 +215,10 @@ function submitWarning (request, reply) {
 }
 
 module.exports.getFrontpage = getFrontpage
+
+module.exports.getLogspage = getLogspage
+
+module.exports.getHelppage = getHelppage
 
 module.exports.showLogin = showLogin
 
