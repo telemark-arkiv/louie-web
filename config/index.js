@@ -31,6 +31,7 @@ var config = {
   SERVER_PORT_API: process.env.SERVER_PORT_API || 3000,
   DB_CONNECTION_LOG: process.env.DB_CONNECTION_LOG || 'mongodb://logserver/louie',
   DB_CONNECTION_QUEUE: process.env.DB_CONNECTION_QUEUE || 'mongodb://queueserver/louie',
+  BUDDY_API_URL: process.env.BUDDY_API_URL || 'https://api.buddy.com',
   JWT_SECRET: process.env.JWT_SECRET || 'Louie Louie, oh no, I got to go',
   COOKIE_SECRET: process.env.JWT_SECRET || 'Louie Louie, oh no, I got to go',
   LDAP: {

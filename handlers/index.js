@@ -1,6 +1,7 @@
 'use strict'
 
 var mongojs = require('mongojs')
+var Wreck = require('wreck')
 var config = require('../config')
 var dblog = mongojs(config.DB_CONNECTION_LOG)
 var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
@@ -12,9 +13,14 @@ var prepareWarning = require('../lib/prepare-warning')
 var order = require('../lib/categories-order')
 var behaviour = require('../lib/categories-behaviour')
 var warningTypes = require('../lib/categories-warnings')
+var wreckOptions = {
+  json: true
+}
 
 function filterWarningTypes (isContact) {
   var filteredList = []
+  // dirty fix while testing
+  isContact = true
   warningTypes.forEach(function (type) {
     if (type.id === 'karakter' || isContact) {
       filteredList.push(type)
@@ -159,6 +165,36 @@ function doLogout (request, reply) {
 function doSearch (request, reply) {
   var data = request.payload
   var searchText = data.searchText
+  var viewOptions = {
+    version: pkg.version,
+    versionName: pkg.louie.versionName,
+    versionVideoUrl: pkg.louie.versionVideoUrl,
+    systemName: pkg.louie.dusteNavn,
+    githubUrl: pkg.repository,
+    credentials: request.auth.credentials,
+    searchText: searchText
+  }
+
+  wreckOptions.headers = {
+    Authorization: request.auth.credentials.token
+  }
+
+  Wreck.get(config.BUDDY_API_URL + searchText, wreckOptions, function (error, res, payload) {
+    if (error) {
+      reply(error)
+    } else {
+      viewOptions.students = payload
+      request.cookieAuth.set('searchResults', payload)
+      reply.view('search-results', viewOptions)
+    }
+  })
+}
+
+/*
+// For local testing
+function doSearch (request, reply) {
+  var data = request.payload
+  var searchText = data.searchText
   var students = require('../test/data/students')
   var viewOptions = {
     version: pkg.version,
@@ -173,6 +209,7 @@ function doSearch (request, reply) {
   request.cookieAuth.set('searchResults', students)
   reply.view('search-results', viewOptions)
 }
+*/
 
 function writeWarning (request, reply) {
 
