@@ -8,7 +8,6 @@ var dbqueue = mongojs(config.DB_CONNECTION_QUEUE)
 var logs = dblog.collection('logs')
 var queue = dbqueue.collection('queue')
 var pkg = require('../package.json')
-var students = require('../test/data/students')
 var prepareWarning = require('../lib/prepare-warning')
 var order = require('../lib/categories-order')
 var behaviour = require('../lib/categories-behaviour')
@@ -193,6 +192,7 @@ function doSearch (request, reply) {
 /*
 // For local testing
 function doSearch (request, reply) {
+  var students = require('../test/data/students')
   var data = request.payload
   var searchText = data.searchText
   var students = require('../test/data/students')
@@ -212,7 +212,6 @@ function doSearch (request, reply) {
 */
 
 function writeWarning (request, reply) {
-
   function filterStudents (studentID) {
     var chosen
     request.auth.credentials.searchResults.forEach(function (student) {

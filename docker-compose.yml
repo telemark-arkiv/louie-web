@@ -6,6 +6,7 @@ webserver:
     SERVER_PORT_API: 3000
     DB_CONNECTION_LOG: mongodb://logserver/louie
     DB_CONNECTION_QUE: mongodb://queserver/louie
+    # BUDDY_API_URL: https://api.buddy.com
     JWT_SECRET: "Louie Louie, oh no, I got to go"
     COOKIE_SECRET: "Louie Louie, oh no, I got to go"
     LDAP_URL: "ldap://ldap.forumsys.com:389"
