@@ -57,3 +57,7 @@
 .modal__dialog {
     width: 600px;
 }
+
+button[disabled=disabled], button:disabled {
+    background-color: #B2B2B2 !important;
+}

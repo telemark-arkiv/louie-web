@@ -5,12 +5,14 @@ function init () {
   var checkboxes = document.querySelectorAll('.mdl-checkbox')
   hideAllCheckboxes()
   hideAllHeaders()
+  validateWarning()
   Array.prototype.forEach.call(radios, function(el) {
     el.addEventListener('click', function (e) {
       hideAllCheckboxes()
       hideAllHeaders()
       showMe(e.target.value)
       buildPreview()
+      validateWarning()
     })
     if (el.checked) {
       showMe(el.value)
@@ -19,6 +21,7 @@ function init () {
   Array.prototype.forEach.call(checkboxes, function(el) {
     el.addEventListener('click', function (e) {
       buildPreview()
+      validateWarning()
     })
   })
 
@@ -95,6 +98,72 @@ function buildPreview () {
 
 }
 
+function validateWarning () {
+  var button = document.getElementById('submitWarning')
+  var warningTypes = document.querySelectorAll('.warning-type-selector')
+  var periods = document.querySelectorAll('.period-selector')
+  var checkBoxes = document.querySelectorAll('.mdl-checkbox__input')
+  var arsakCourse = document.getElementById('courseChkboxCourse')
+  var checkboxCount = 0
+  var type = false
+  var typeOK = false
+  var periodOK = false
+  var courseOK = false
+  var reasonOK = false
+
+  // Starts by disabling button
+  button.disabled = true
+
+  Array.prototype.forEach.call(warningTypes, function(el) {
+    if (el.checked) {
+      type = el.value
+      typeOK = true
+    }
+  })
+
+  console.log(type)
+
+  Array.prototype.forEach.call(periods, function(el) {
+    if (el.checked) {
+      periodOK = true
+    }
+  })
+
+  Array.prototype.forEach.call(checkBoxes, function(el) {
+    if (el.checked) {
+      if (type === 'atferd' && /behaviour/.test(el.id)) {
+        checkboxCount ++
+      }
+      if (type === 'orden' && /order/.test(el.id)) {
+        checkboxCount ++
+      }
+      if (type === 'karakter' && /course/.test(el.id)) {
+        checkboxCount ++
+      }
+    }
+  })
+
+  console.log(checkboxCount)
+
+  if (type === 'karakter' && arsakCourse.checked) {
+    reasonOK = true
+  }
+
+  if (type === 'karakter' && checkboxCount > 1) {
+    courseOK = true
+  }
+
+  if (type !== 'karakter' && checkboxCount > 0) {
+    reasonOK = true
+    courseOK = true
+  }
+
+  // If everything is OK let's go :-)
+  if (typeOK && periodOK && courseOK && reasonOK) {
+    button.disabled = false
+  }
+
+}
 
 function ready (fn) {
   if (document.readyState != 'loading'){
