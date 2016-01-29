@@ -16,12 +16,10 @@ var wreckOptions = {
   json: true
 }
 
-function filterWarningTypes (isContact) {
+function filterWarningTypes (contactTeacher) {
   var filteredList = []
-  // dirty fix while testing
-  isContact = true
   warningTypes.forEach(function (type) {
-    if (type.id === 'karakter' || isContact) {
+    if (type.id === 'karakter' || contactTeacher) {
       filteredList.push(type)
     }
   })
@@ -195,6 +193,7 @@ function doSearch (request, reply) {
     } else {
       viewOptions.students = payload
       request.cookieAuth.set('searchResults', payload)
+      console.log(JSON.stringify(payload))
       reply.view('search-results', viewOptions)
     }
   })
@@ -245,7 +244,7 @@ function writeWarning (request, reply) {
     student: student,
     order: order,
     behaviour: behaviour,
-    warningTypes: filterWarningTypes(student.isContact)
+    warningTypes: filterWarningTypes(student.contactTeacher)
   }
   reply.view('warning', viewOptions)
 }

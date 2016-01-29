@@ -28,7 +28,7 @@ var students = [
         unitId: 'SKIVS'
       }
     ],
-    isContact: true
+    contactTeacher: true
   },
   {
     firstName: 'Helga',
@@ -47,7 +47,7 @@ var students = [
         unitId: 'SKIVS'
       }
     ],
-    isContact: false
+    contactTeacher: false
   }
 ]
 
