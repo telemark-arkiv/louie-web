@@ -84,7 +84,6 @@ function getHelppage (request, reply) {
 }
 
 function showLogin (request, reply) {
-
   var viewOptions = {
     version: pkg.version,
     versionName: pkg.louie.versionName,
