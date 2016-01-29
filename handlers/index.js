@@ -185,12 +185,12 @@ function doSearch (request, reply) {
     credentials: request.auth.credentials,
     searchText: searchText
   }
-
+  var searchUrl = config.BUDDY_API_URL + '/search/' + request.auth.credentials.data.userId + '/'
   wreckOptions.headers = {
     Authorization: request.auth.credentials.token
   }
 
-  Wreck.get(config.BUDDY_API_URL + searchText, wreckOptions, function (error, res, payload) {
+  Wreck.get(searchUrl + searchText, wreckOptions, function (error, res, payload) {
     if (error) {
       reply(error)
     } else {
