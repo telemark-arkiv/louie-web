@@ -18,12 +18,10 @@ function init () {
   submit.disabled = true
 
   usr.addEventListener('input', function (e) {
-    console.log('hei')
     isValid()
   })
 
   pwd.addEventListener('input', function (e) {
-    console.log('ho')
     isValid()
   })
 }

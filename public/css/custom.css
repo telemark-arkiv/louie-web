@@ -54,6 +54,12 @@
     list-style-type: none;
 }
 
+.modal {
+    overflow-x: visible;
+    overflow-y: visible;
+    position: absolute;
+}
+
 .modal__dialog {
     width: 600px;
 }
