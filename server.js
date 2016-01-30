@@ -6,6 +6,13 @@ var server = new Hapi.Server()
 var config = require('./config')
 var louieService = require('./index')
 var validate = require('./lib/validateJWT')
+var yarOptions = {
+  storeBlank: false,
+  cookieOptions: {
+    password: config.COOKIE_SECRET,
+    isSecure: false
+  }
+}
 
 server.connection({
   port: config.SERVER_PORT_WEB
@@ -59,7 +66,7 @@ server.register([
 
 server.register(require('hapi-auth-cookie'), function (err) {
   if (err) {
-    console.error('Failed to load a plugin:', err)
+    console.error('Failed to load a plugin: ', err)
   }
 
   server.auth.strategy('session', 'cookie', {
@@ -71,6 +78,13 @@ server.register(require('hapi-auth-cookie'), function (err) {
   })
 
   server.auth.default('session')
+})
+
+server.register({
+  register: require('yar'),
+  options: yarOptions
+}, function (err) {
+  console.error('Failed to load a plugin: ', err)
 })
 
 function startServer () {
