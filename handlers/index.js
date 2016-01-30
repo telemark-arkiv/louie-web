@@ -193,7 +193,6 @@ function doSearch (request, reply) {
     } else {
       viewOptions.students = payload
       request.yar.set('searchResults', payload)
-      console.log(JSON.stringify(payload))
       reply.view('search-results', viewOptions)
     }
   })

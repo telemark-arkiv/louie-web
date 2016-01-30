@@ -10,7 +10,7 @@ var yarOptions = {
   storeBlank: false,
   cookieOptions: {
     password: config.COOKIE_SECRET,
-    isSecure: false
+    isSecure: true
   }
 }
 
@@ -84,7 +84,7 @@ server.register({
   register: require('yar'),
   options: yarOptions
 }, function (err) {
-  console.error('Failed to load a plugin: ', err)
+  console.error('Failed to load a plugin: yar ', err)
 })
 
 function startServer () {
