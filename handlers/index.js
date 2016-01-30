@@ -192,7 +192,7 @@ function doSearch (request, reply) {
       reply(error)
     } else {
       viewOptions.students = payload
-      request.cookieAuth.set('searchResults', payload)
+      request.yar.set('searchResults', payload)
       console.log(JSON.stringify(payload))
       reply.view('search-results', viewOptions)
     }
@@ -216,15 +216,16 @@ function doSearch (request, reply) {
     students: students,
     searchText: searchText
   }
-  request.cookieAuth.set('searchResults', students)
+ request.yar.set('searchResults', payload)
   reply.view('search-results', viewOptions)
 }
 */
 
 function writeWarning (request, reply) {
   function filterStudents (studentID) {
+    var students = request.yar.get('searchResults') || []
     var chosen
-    request.auth.credentials.searchResults.forEach(function (student) {
+    students.forEach(function (student) {
       if (student.personalIdNumber === studentID) {
         chosen = student
       }
