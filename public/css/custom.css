@@ -71,3 +71,8 @@ button[disabled=disabled], button:disabled {
 .padding5 {
     padding: 5px;
 }
+
+.hide-me {
+    display: none;
+    visibility: hidden;
+}
