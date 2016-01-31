@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = function (input) {
-  return input ? 'hide-me' : 'show-me'
+  return input.length > 0 ? 'hide-me' : 'show-me'
 }

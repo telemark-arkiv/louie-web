@@ -2,13 +2,36 @@
 
 {{>logs-list}}
 
-<div class="mdl-grid {{hideMe logs}}">
+<div class="mdl-grid">
     <div class="mdl-cell mdl-cell--3-col"></div>
-    <div class="mdl-data-table mdl-js-data-table mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
-        Søk frem elever ved å skrive deler av eller hele navnet i søkefeltet trykk deretter <span class="material-icon">search</span><br/>
-        Fra listen av navn:<br/>
-        Trykk <span class="material-icons"></span> for å skrive et nytt varsel til eleven.<br/>
-        Velg <span class="material-icons"></span> for å se varselhistorikk for eleven.<br/>
-    </div>
+    <table class="mdl-cell--6-col mdl-cell--8-col-tablet">
+        <tbody>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric" colspan="2">
+                    Søk frem elever ved å skrive hele, eller deler av, navnet i søkefeltet.<br/><br/>
+                    Fra siden med søkeresultater resultatlisten kan du sende varsler eller se oversikt over tidligere sendte varsler.<br/><br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric"><i class="material-icons">home</i></td>
+                <td class="mdl-data-table__cell--non-numeric">Til forsiden</td>
+            </tr>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric"><i class="material-icons">help_outline</i></td>
+                <td class="mdl-data-table__cell--non-numeric">Hjelp</td>
+            </tr>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric"><i class="material-icons">list</i></td>
+                <td class="mdl-data-table__cell--non-numeric">Aktivitetslogg</td>
+            </tr>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric"><i class="material-icons">power_settings_new</i></td>
+                <td class="mdl-data-table__cell--non-numeric">Avslutt/Logg ut av {{systemName}}</td>
+            </tr>
+        </tbody>
+    </table>
     <div class="mdl-cell mdl-cell--3-col"></div>
 </div>
+
+<!-- Helperscript for search -->
+<script src="/public/js/searchform-validate.js"></script>

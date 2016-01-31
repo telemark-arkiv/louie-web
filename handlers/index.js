@@ -27,7 +27,7 @@ function filterWarningTypes (contactTeacher) {
 }
 
 function getFrontpage (request, reply) {
-  logs.find({'userId': request.auth.credentials.data.userId}).sort({timeStamp: -1}, function (error, data) {
+  logs.find({'userId': request.auth.credentials.data.userId}).sort({timeStamp: -1}).limit(20, function (error, data) {
     if (error) {
       console.error(error)
     }
@@ -38,18 +38,18 @@ function getFrontpage (request, reply) {
       systemName: pkg.louie.dusteNavn,
       githubUrl: pkg.repository.url,
       credentials: request.auth.credentials,
-      logs: data
+      logs: data || []
     }
     reply.view('index', viewOptions)
   })
 }
 
 function getLogspage (request, reply) {
-  var query = {
-    'userId': request.auth.credentials.data.userId
-  }
+  var query = {}
   if (request.query.studentId) {
     query.studentId = request.query.studentId
+  } else {
+    query.userId = request.auth.credentials.data.userId
   }
 
   logs.find(query).sort({timeStamp: -1}, function (error, data) {
