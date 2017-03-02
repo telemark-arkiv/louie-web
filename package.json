@@ -50,7 +50,7 @@
   "devDependencies": {
     "coveralls": "^2.11.6",
     "standard": "^8.6.0",
-    "tap": "^10.0.2"
+    "tap": "^10.3.0"
   },
   "dependencies": {
     "handlebars": "^4.0.5",
